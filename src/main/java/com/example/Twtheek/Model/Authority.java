@@ -1,15 +1,13 @@
 package com.example.Twtheek.Model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "Authority")
 public class Authority {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int authorityId;
     @Column
     private String authorityName;

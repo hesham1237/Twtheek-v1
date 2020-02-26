@@ -37,10 +37,13 @@ public class UserControllar {
     public List<User> getUser() {
         return serviceUser.getUser();
     }
+
+
     @DeleteMapping(value = "/{national_Id}")
     public String deleteUserint(@PathVariable("national_Id") int id) {
         serviceUser.deleteUserint(id);
         return "Is Deleted Successfully!!";
     }
+
 
 }

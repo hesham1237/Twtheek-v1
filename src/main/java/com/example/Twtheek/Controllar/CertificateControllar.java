@@ -24,10 +24,10 @@ public class CertificateControllar {
         Certificate certificate =serviceCertificate.uploadCertificate(file);
         return certificate;
     }
-//    @GetMapping(value = "getCertificate")
-//    public List<Certificate> getCertificate(){
-//        return serviceCertificate.getCertificate();
-//    }
+    @GetMapping(value = "getCertificate")
+    public List<Certificate> getCertificate(){
+        return serviceCertificate.getCertificate();
+    }
 
     @DeleteMapping(value = "{certificateId}")
     public String deleteCertificate(@PathVariable("certificateId") int id){

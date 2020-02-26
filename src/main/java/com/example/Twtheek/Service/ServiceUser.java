@@ -10,4 +10,5 @@ public interface ServiceUser {
     public Organization addOrg(Organization organization);
     public List<User> getUser();
     public void deleteUserint (int id);
+
 }

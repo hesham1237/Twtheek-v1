@@ -8,5 +8,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 @Repository
 public interface Repositry_Organization extends JpaRepository<Organization,Integer> {
-    public List<Organization> findAll();
+    public List<Organization>findById(int organizationId);
+
 }
