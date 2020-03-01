@@ -23,6 +23,9 @@ public class User {
     private String passwordField;
     @Column(name = "dateOfBirth")
     private String dateOfBirth;
+    @Column(name = "enabled")
+    private boolean enable=true;
+
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "userOrganization")
     private Organization userOrganization;
@@ -39,6 +42,14 @@ public class User {
         this.userId=userId;
     }
 
+
+    public boolean isEnable() {
+        return enable;
+    }
+
+    public void setEnable(boolean enable) {
+        this.enable = enable;
+    }
 
     public Organization getUserOrganization() {
         return userOrganization;

@@ -4,6 +4,7 @@ import com.example.Twtheek.Model.Organization;
 import com.example.Twtheek.Model.User;
 import com.example.Twtheek.Service.ServiceUser;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,10 +14,6 @@ import java.util.List;
 @RequestMapping("/Users")
 public class UserControllar {
 
-    @RequestMapping(value = "/w", method = RequestMethod.GET)
-    public String s(){
-    return "ts";
-}
     @Autowired
     private ServiceUser serviceUser;
 

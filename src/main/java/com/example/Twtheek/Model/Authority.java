@@ -10,9 +10,9 @@ public class Authority {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int authorityId;
     @Column
-    private String authorityName;
+    private String username;
     @Column
-    private String authorityDescription;
+    private String authority;
 
     public int getAuthorityId() {
         return authorityId;
@@ -22,20 +22,20 @@ public class Authority {
         this.authorityId = authorityId;
     }
 
-    public String getAuthorityName() {
-        return authorityName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setAuthorityName(String authorityName) {
-        this.authorityName = authorityName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getAuthorityDescription() {
-        return authorityDescription;
+    public String getAuthority() {
+        return authority;
     }
 
-    public void setAuthorityDescription(String authorityDescription) {
-        this.authorityDescription = authorityDescription;
+    public void setAuthority(String authority) {
+        this.authority = authority;
     }
 
 
