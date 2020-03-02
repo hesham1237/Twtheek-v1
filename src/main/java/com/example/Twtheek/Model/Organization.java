@@ -13,11 +13,11 @@ public class Organization {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int organizationId;
-    @Column
+    @Column(name = "organizationName")
     private String organizationName;
-    @Column
+    @Column(name = "organizationAddress")
     private String organizationAddress;
-    @Column
+    @Column(name = "contactNumber")
     private String contactNumber;
     @OneToMany(mappedBy = "userOrganization", cascade = CascadeType.ALL)
     private List<User> users = new ArrayList<>();

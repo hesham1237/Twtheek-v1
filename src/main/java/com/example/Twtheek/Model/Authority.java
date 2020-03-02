@@ -1,18 +1,23 @@
 package com.example.Twtheek.Model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "Authority")
 public class Authority {
 
-    @Id
+    @Column
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int authorityId;
-    @Column
+    @Column(name = "username")
     private String username;
-    @Column
+    @Id
+    @Column(name = "authority")
     private String authority;
+//    @OneToMany(mappedBy = "authority", cascade = CascadeType.ALL)
+//    private List<User> auth = new ArrayList<>();
 
     public int getAuthorityId() {
         return authorityId;
@@ -37,6 +42,12 @@ public class Authority {
     public void setAuthority(String authority) {
         this.authority = authority;
     }
-
-
 }
+//    public List<User> getAuth() {
+//        return auth;
+//    }
+//
+//    public void setAuth(List<User> auth) {
+//        this.auth = auth;
+//    }
+//}

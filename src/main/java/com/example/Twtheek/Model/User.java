@@ -30,8 +30,22 @@ public class User {
     @JoinColumn(name = "userOrganization")
     private Organization userOrganization;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "authority")
+    private Authority authority;
 
-    public User(int userId,String name, int national_Id, String email, String phone_number, String passwordField, String dateOfBirth, Organization userOrganization) {
+    public Authority getAuthority() {
+        return authority;
+    }
+
+    public void setAuthority(Authority authority) {
+        this.authority = authority;
+    }
+
+
+
+
+    public User(int userId,String name, int national_Id, String email, String phone_number, String passwordField, String dateOfBirth, boolean enable,Organization userOrganization) {
         this.name = name;
         this.national_Id = national_Id;
         this.email = email;
@@ -40,6 +54,7 @@ public class User {
         this.dateOfBirth = dateOfBirth;
         this.userOrganization = userOrganization;
         this.userId=userId;
+        this.enable=enable;
     }
 
 

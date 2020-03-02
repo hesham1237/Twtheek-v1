@@ -5,6 +5,7 @@ import com.example.Twtheek.Model.User;
 import com.example.Twtheek.Service.ServiceUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,12 +20,13 @@ public class UserControllar {
 
 
     @PostMapping(value = "/addUser")
-    public User addCourse(@RequestBody User user) {
+    public User addUser(User user) {
+        user.setPasswordField(new BCryptPasswordEncoder().encode(user.getPasswordField()));
 
         return serviceUser.addUser(user);
     }
     @PostMapping(value = "/addorg")
-    public Organization addorg(@RequestBody Organization organization) {
+    public Organization addorg(Organization organization) {
 
         return serviceUser.addOrg(organization);
     }
