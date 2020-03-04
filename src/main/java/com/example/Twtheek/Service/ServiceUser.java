@@ -1,5 +1,6 @@
 package com.example.Twtheek.Service;
 
+import com.example.Twtheek.DTO.UserDTO;
 import com.example.Twtheek.Model.Organization;
 import com.example.Twtheek.Model.User;
 
@@ -10,5 +11,7 @@ public interface ServiceUser {
     public Organization addOrg(Organization organization);
     public List<User> getUser();
     public void deleteUserint (int id);
+    public List<UserDTO> getAllUsers();
+    public UserDTO getUser(int userID);
 
 }

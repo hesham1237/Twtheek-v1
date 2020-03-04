@@ -12,7 +12,7 @@ public class TwtheekApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(TwtheekApplication.class, args);
-		System.out.println(new BCryptPasswordEncoder().encode("123"));
+//		System.out.println(new BCryptPasswordEncoder().encode("123"));
 	}
 
 }
