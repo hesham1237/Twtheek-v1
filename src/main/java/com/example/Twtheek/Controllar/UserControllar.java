@@ -5,10 +5,15 @@ import com.example.Twtheek.Model.Organization;
 import com.example.Twtheek.Model.User;
 import com.example.Twtheek.Service.ServiceUser;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/Users")
@@ -19,7 +24,7 @@ public class UserControllar {
 
 
     @PostMapping(value = "/addUser")
-    public User addUser(@RequestBody User user) {
+    public User addUser(@RequestBody @Valid User user) {
 
         return serviceUser.addUser(user);
     }
@@ -51,6 +56,17 @@ public class UserControllar {
     public String deleteUserint(@RequestBody @PathVariable("national_Id") int id) {
         serviceUser.deleteUserint(id);
         return "Is Deleted Successfully!!";
+    }
+    //The handleMethodArgumentNotValid Exception Handler
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public Map<String, String> handleMethodArgumentNotValid(MethodArgumentNotValidException ex) {
+        Map<String, String> errors = new HashMap<>();
+
+        ex.getBindingResult().getFieldErrors().forEach(error ->
+                errors.put(error.getField(), error.getDefaultMessage()));
+
+        return errors;
     }
 
 

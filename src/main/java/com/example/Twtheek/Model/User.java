@@ -1,26 +1,35 @@
 package com.example.Twtheek.Model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import javax.swing.*;
+import javax.validation.constraints.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "Users")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE) //Auto generate incremental number
     @Column(name = "userId")
     private int userId;
+   @NotNull(message = "First name , Last name is required")
+    @Size(min = 3, max = 20)
     @Column(name = "name")
     private String name;
     @Column(name = "national_Id")
     private int national_Id;
+    @Email
+    @Pattern(regexp=".+@.+\\.[a-z]+")
+    @NotNull(message = "Email is required")
     @Column(name = "email")
     private String email;
     @Column(name = "phone_number")
     private String phone_number;
     @Column(name = "password")
     private String passwordField;
+    @JsonFormat(pattern = "yyyy-MM-dd")
     @Column(name = "dateOfBirth")
     private String dateOfBirth;
     @Column(name = "enabled")
