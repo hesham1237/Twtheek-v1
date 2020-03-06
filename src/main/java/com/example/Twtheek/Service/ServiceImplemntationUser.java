@@ -7,6 +7,7 @@ import com.example.Twtheek.DTO.ObjectMapperUtils;
 import com.example.Twtheek.Repositry.Repositry_Organization;
 import com.example.Twtheek.Repositry.Repositry_user;
 //import org.modelmapper.ModelMapper;
+import com.example.Twtheek.WebSecurity;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -25,7 +26,16 @@ public class ServiceImplemntationUser implements ServiceUser {
 
     @Override
     public User addUser(User user) {
+//        WebSecurity webSecurity = new WebSecurity();
         user.setPasswordField(new BCryptPasswordEncoder().encode(user.getPasswordField()));
+//        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+//        user.setPasswordField(passwordEncoder.encode(user.getPasswordField()));
+//        final String encryptedPassword = new BCryptPasswordEncoder().encode(user.getPasswordField());
+//
+//        user.setPasswordField(encryptedPassword);
+
+
+
         return reUser.save(user);
     }
 

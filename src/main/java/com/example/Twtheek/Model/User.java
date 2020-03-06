@@ -20,13 +20,14 @@ public class User {
     private String name;
     @Column(name = "national_Id")
     private int national_Id;
-    @Email
+    @Email(message = "Enter a valid email address.")
     @Pattern(regexp=".+@.+\\.[a-z]+")
     @NotNull(message = "Email is required")
     @Column(name = "email")
     private String email;
     @Column(name = "phone_number")
     private String phone_number;
+//    @Pattern(regexp="(.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{6,20}")
     @Column(name = "password")
     private String passwordField;
     @JsonFormat(pattern = "yyyy-MM-dd")
