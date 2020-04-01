@@ -40,7 +40,7 @@ public class UserControllar {
         return serviceUser.getUser();
     }
 
-    @GetMapping(value = "/GetAllUsers")
+    @GetMapping(value = "/m")
     public List<UserDTO> getAllUsers() {
         return serviceUser.getAllUsers();}
 
